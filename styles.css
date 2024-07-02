@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(8, 150px);
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.card {
+    width: 150px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+    border: 5px solid transparent;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-back {
+    background: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card-front.photo::before,
+.card-front.text::before {
+    font-size: 48px;
+    color: #2980b9;
+}
+
+.card-front.photo::before {
+    content: "\f03e";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.card-front.text::before {
+    content: "\f02d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.accordion {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.accordion-button {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.accordion-content {
+    display: none;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container textarea, .form-container button {
+    margin: 5px;
+    width: 300px;
+}
